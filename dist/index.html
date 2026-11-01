@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f5f7">
+  <meta name="description" content="在线游玩 公路穿行，以及 2048、贪吃蛇等小游戏，支持电脑和手机。">
+  <title>Playroom 玩点 · 小游戏</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=1.7.0">
+  <script src="game-core.js" defer></script>
+  <script src="app.js?v=1.7.1" defer></script>
+</head>
+<body>
+<svg class="svg-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 13.4A9 9 0 0 1 10.6 3 9 9 0 1 0 21 13.4Z"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+  <symbol id="i-restart" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1 7M4 4v6h6"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" stroke-width="4"/></symbol>
+  <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M3 6h2c6 0 8 12 14 12h2m-4-4 4 4-4 4M3 18h2c2 0 4-2 5-4m4-4c1-2 3-4 5-4h2m-4-4 4 4-4 4"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.8 7.2L22 12l-7.2 2.8L12 22l-2.8-7.2L2 12l7.2-2.8Z"/></symbol>
+</defs></svg>
+<header class="site-header"><nav class="nav-shell" aria-label="主导航">
+  <a class="brand" href="#" aria-label="Playroom 首页"><span class="brand-mark"><span></span><span></span><span></span><span></span></span>playroom<span class="brand-cn">玩点</span></a>
+  <div class="nav-links"><button class="nav-link active" data-view="discover">发现</button><button class="nav-link" data-view="all">全部游戏</button><button class="nav-link" data-view="favorites">我的收藏 <span id="fav-count" hidden>0</span></button></div>
+  <div class="nav-actions"><button class="icon-button" id="search-toggle" aria-label="搜索游戏"><svg><use href="#i-search"/></svg></button><span class="nav-divider"></span><button class="icon-button" id="theme-toggle" aria-label="切换深色外观"><svg><use href="#i-moon"/></svg></button></div>
+</nav></header>
+<main>
+  <section class="hero container" id="hero">
+    <div class="hero-copy"><h1>小游戏，<br>打开<span class="hero-word">就玩。</span></h1><div class="hero-actions"><button class="button primary" data-open="2048">开始 2048 <svg><use href="#i-play"/></svg></button><button class="text-button" id="browse-games">查看全部游戏 <span>↗</span></button></div></div>
+    <button class="hero-art" data-open="2048" aria-label="打开 2048"><span class="art-orbit orbit-one"></span><span class="art-orbit orbit-two"></span><span class="hero-board"><span class="demo-tile v2">2</span><span class="demo-tile v4">4</span><span class="demo-tile blank"></span><span class="demo-tile v8">8</span><span class="demo-tile v8">8</span><span class="demo-tile v16">16</span><span class="demo-tile v4">4</span><span class="demo-tile blank"></span><span class="demo-tile blank"></span><span class="demo-tile v32">32</span><span class="demo-tile v64">64</span><span class="demo-tile v8">8</span><span class="demo-tile v4">4</span><span class="demo-tile blank"></span><span class="demo-tile v128">128</span><span class="demo-tile v2048">2048</span></span><span class="art-caption">2048 <span class="caption-arrow">↗</span></span><span class="float-shape shape-blue"></span><span class="float-shape shape-orange"></span></button>
+  </section>
+  <section class="collection container" id="collection" aria-labelledby="collection-title">
+    <div class="section-top"><div><h2 id="collection-title">全部游戏</h2></div><button class="random-button" id="random-game"><svg><use href="#i-shuffle"/></svg> 随机游戏 <span>↗</span></button></div>
+    <div class="collection-toolbar"><div class="category-tabs" role="group" aria-label="游戏分类"><button class="category active" data-category="all" aria-pressed="true">全部 <span>9</span></button><button class="category" data-category="3D" aria-pressed="false">3D</button><button class="category" data-category="益智" aria-pressed="false">益智</button><button class="category" data-category="街机" aria-pressed="false">街机</button><button class="category" data-category="休闲" aria-pressed="false">休闲</button><button class="category" data-category="策略" aria-pressed="false">策略</button></div><label class="search-box"><svg><use href="#i-search"/></svg><input id="game-search" type="search" placeholder="搜索游戏" aria-label="搜索游戏" autocomplete="off"><kbd>/</kbd></label></div>
+    <div class="game-grid" id="game-grid"></div>
+    <div class="empty-state" id="empty-state" hidden><svg><use href="#i-search"/></svg><h3 id="empty-title">暂无匹配游戏</h3><p id="empty-message">更换搜索词或游戏分类。</p><button class="button secondary" id="reset-filter">查看全部游戏</button></div>
+  </section>
+</main>
+<footer class="site-footer container"><a class="brand" href="#"><span class="brand-mark"><span></span><span></span><span></span><span></span></span>playroom<span class="brand-cn">玩点</span></a><span class="footer-detail">V1.7</span></footer>
+<dialog id="game-dialog" aria-labelledby="game-title"><div class="game-window"><header class="game-header"><button class="icon-button close-game" aria-label="关闭游戏"><svg><use href="#i-close"/></svg></button><div class="game-heading"><span class="modal-category" id="modal-category"></span><h2 id="game-title"></h2></div><button class="icon-button" id="modal-favorite" aria-label="收藏游戏"><svg><use href="#i-heart"/></svg></button></header><div class="game-layout"><div class="game-main"><div class="scorebar"><div><span id="score-label">本局得分</span><strong id="current-score">0</strong></div><div><span id="best-label">最佳成绩</span><strong id="best-score">0</strong></div><div class="game-controls"><button class="icon-button" id="pause-game" aria-label="暂停游戏" hidden><svg><use href="#i-pause"/></svg></button><button class="icon-button" id="restart-game" aria-label="重新开始"><svg><use href="#i-restart"/></svg></button></div></div><div id="game-stage" class="game-stage" tabindex="0" aria-label="游戏区域"></div><div id="touch-controls"></div><p class="game-status" id="game-status" role="status" aria-live="polite"></p></div><aside class="game-aside"><h3>操作说明</h3><p id="game-instructions"></p><div class="control-hint" id="control-hint"></div><div class="aside-divider"></div><div class="local-note"><svg><use href="#i-clock"/></svg><p>成绩和收藏保存在当前浏览器。</p></div><button class="text-button" id="next-game">随机切换游戏 <svg><use href="#i-arrow"/></svg></button></aside></div></div></dialog>
+<div id="toast" class="toast" role="status"></div>
+</body>
+</html>
